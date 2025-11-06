@@ -245,6 +245,9 @@ secrets/context7-key
 ### Example Usage
 
 ```bash
+# Sync your commands and agents first
+./sync.sh
+
 # Start OpenCode
 opencode
 
@@ -254,39 +257,50 @@ opencode
 # Use custom commands
 /summarize
 
+# Use custom agents
+@"miss frizzle" Explain how databases work
+
 # Get help
 /help
 ```
 
 ### Managing Commands and Agents
 
-This repository includes custom commands and agents that can be synced to OpenCode:
+This repository includes custom commands and agents that can be synced to both OpenCode and Claude Code:
 
 ```bash
-# Sync local commands to OpenCode
+# Sync both commands and agents to OpenCode and Claude Code
 ./sync.sh
 
-# Sync local agents to OpenCode
-./sync-agents.sh
+# The script will:
+# ✅ Sync agents to both OpenCode and Claude Code
+# ✅ Sync commands to both OpenCode and Claude Code
+# ✅ Create necessary directories automatically
+# ✅ Show detailed sync information
 
 # Available commands will be listed after sync
 # Use them with: /command-name
 
-# Available agents will be listed after sync  
+# Available agents will be listed after sync
 # Use them with: @agent-name
 ```
+
+**Note**: The consolidated `sync.sh` script replaces the old `sync-agents.sh` and `sync-commands.sh` scripts, making it easier to keep both OpenCode and Claude Code in sync with your custom agents and commands.
 
 #### Example Usage
 
 ```bash
+# First, sync your commands and agents
+./sync.sh
+
 # Start OpenCode
 opencode
 
 # Use the summarize command
 /summarize
 
-# Use the ELI5 agent
-@ELI5 How does machine learning work?
+# Use a custom agent (like miss frizzle)
+@"miss frizzle" How does machine learning work?
 
 # Try Context7 integration
 "Create a Next.js middleware that checks for a valid JWT in cookies and redirects unauthenticated users to /login. use context7"
